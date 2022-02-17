@@ -27,18 +27,59 @@
         <section id="body-portion">
             <!-- first portion -->
             <section id="first-portion">
-                <div id="site-image">
+                <section id="site-image">
                     <img src="img/img-1.png" alt="image">
-                </div>
+                </section>
             </section>
             <!-- last portion -->
             <section id="last-poriton">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem totam eum tempora amet
-                    veniam in
-                    ut
-                    suscipit odio labore ducimus?
-                </p>
+                <section id="balance-statement">
+                    <!-- income statement -->
+                    <section id="income-statement">
+                        <h2>Income</h2>
+                        <div class="income-box">
+                            <label for="income">Income: <input type="text" name="income" id="income-input"></label>
+                        </div>
+                    </section>
+                    <!-- expense statement -->
+                    <section id="expense-statement">
+                        <h2>Expenses</h2>
+                        <div class="expense-box-food">
+                            <label for="expense">Food: <input type="text" name="food" id="food-input"></label>
+                        </div>
+                        <div class="expense-box-rent">
+                            <label for="rent">Rent: <input type="text" name="rent" id="rent-input"></label>
+                        </div>
+                        <div class="expense-box-cloth">
+                            <label for="cloth">Clothes: <input type="text" name="cloth" id="cloth-input"></label>
+                        </div>
+                    </section>
+                    <!-- calculate expense statement -->
+                    <section id="calc-expense-statement">
+                        <div class="calc-expense-btn">
+                            <button class="btn-style" type="" id="calc-btn">Calculate</button>
+                        </div>
+                        <div class="calc-expense-desc">
+                            <h4 id="toal-expense">Total Expenses: $<span>500</span></h4>
+                            <h4 id="balance">Balance: $<span>500</span></h4>
+                        </div>
+                    </section>
+                    <!-- savings statement -->
+                    <section id="savings-statement">
+                        <div class="savings-box">
+                            <label for="save">Save: <input type="text" name="save" id="save-input"> % <button class="btn-style"
+                                    id="save-btn">Save</button>
+                            </label>
+                        </div>
+                    </section>
+                    <!-- calculate savings statement -->
+                    <section id="calc-savings-statement">
+                        <div class="calc-save-desc">
+                            <h4 id="saving-amount">Saving Amount: $<span>500</span></h4>
+                            <h4 id="remaining-balance">Remaining Balance: $<span>500</span></h4>
+                        </div>
+                    </section>
+                </section>
             </section>
         </section>
     </main>

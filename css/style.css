@@ -1,6 +1,7 @@
 /* adding google fonts through stylesheet */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+/* default property maintaining */
 *{
     padding: 0;
     margin: 0;
@@ -11,11 +12,11 @@ body{
     padding: 2rem;
 }
 
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6, label{
     font-family: 'Poppins', sans-serif;
 }
 
-p, a{
+p, a, input{
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -23,6 +24,8 @@ img{
     max-width: 100%;
 }
 
+/* header segment */
+/* title maintenance */
 #head-portion{
     padding: 5rem;
     text-align: center;
@@ -32,19 +35,70 @@ img{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 5rem;
+    align-items: center;
 }
 
-#first-portoin{
+/* body segment */
+/* first portion */
+/* let not out the image of the box */
+#first-portion{
     overflow: hidden;
 }
 
 #site-image{
     box-sizing: border-box;
     padding: 2rem;
-    border-radius: 1rem;
     background-color: white;
+    background-image: url(../img/img-2.png);
+    position: relative;
+    z-index: 1;
 }
 
-#site-image img{
-    filter: blur(3px);
+#site-image::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
 }
+
+/* last portion */
+#balance-statement{}
+/* income statement */
+#income-statement{}
+#income-statement h2{}
+.income-box{}
+.income-box label{}
+#income-input{}
+/* expense statement */
+#expense-statement{}
+#expense-statement h2{}
+/* food segment */
+.expense-box-food{}
+.expense-box-food label{}
+#food-input{}
+/* rent segment */
+.expense-box-rent{}
+.expense-box-rent label{}
+.rent-input{}
+/* cloth segment */
+.expense-box-cloth{}
+.expense-box-cloth label{}
+#cloth-input{}
+/* calculate expense segment */
+#calc-expense-statement{}
+.calc-expense-btn{}
+#calc-btn{}
+/* savings statement */
+#savings-statement{}
+.savings-box{}
+.savings-box label{}
+#save-input{}
+#save-btn{}
+/* common button style */
+.btn-style{}
