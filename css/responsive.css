@@ -1,7 +1,7 @@
 /* for large screen */
 @media screen and (min-width: 1024px) {
     label {
-        width: 25%;
+        width: 20%;
     }
 }
 /* for medium screen */
