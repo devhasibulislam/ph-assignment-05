@@ -64,11 +64,11 @@
                         <div class="calc-expense-btn">
                             <button class="btn-style" type="" id="calc-btn">Calculate <i class="fa fa-calculator" aria-hidden="true"></i>
                             </button>
-                            <label for="warning" class="warning"></label>
+                            <label for="warning" class="warning" id="expense-warning"></label>
                         </div>
                         <div class="calc-expense-desc">
-                            <h4 id="total-expense">Total Expenses: $<span class="price">0.00</span></h4>
-                            <h4 id="balance">Balance: $<span class="price">0.00</span></h4>
+                            <h4 id="total-expense">Total Expenses: $<span id="price-total">0.00</span></h4>
+                            <h4 id="balance">Balance: $<span id="price-balance">0.00</span></h4>
                         </div>
                     </section>
                     <!-- savings statement -->
@@ -80,14 +80,14 @@
                                 class="btn-style" id="save-btn">Save <i class="fa fa-ravelry" aria-hidden="true"></i>
                             </button>
                             <br>
-                            <label for="warning" id="warning"></label>
+                            <label for="warning" class="warning" id="saving-warning"></label>
                         </div>
                     </section>
                     <!-- calculate savings statement -->
                     <section id="calc-savings-statement">
                         <div class="calc-save-desc">
-                            <h4 id="saving-amount">Saving Amount: $<span class="price">0.00</span></h4>
-                            <h4 id="remaining-balance">Remaining Balance: $<span class="price">0.00</span></h4>
+                            <h4 id="saving-amount">Saving Amount: $<span id="price-saving">0.00</span></h4>
+                            <h4 id="remaining-balance">Remaining Balance: $<span id="price-remaining">0.00</span></h4>
                         </div>
                     </section>
                 </section>

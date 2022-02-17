@@ -3,90 +3,98 @@ document.getElementById('first-portion').addEventListener('mouseover', function 
     document.getElementById('first-portion').style.overflow = 'hidden';
 });
 document.querySelector('#site-image img').style.filter = 'grayscale(100%)';
-
 document.querySelector('#site-image img').addEventListener('mouseover', function () {
     document.querySelector('#site-image img').style.transition = '1s linear';
     document.querySelector('#site-image img').style.filter = 'grayscale(0%)';
 });
-
 document.querySelector('#site-image img').addEventListener('mouseout', function () {
     document.querySelector('#site-image img').style.transition = '1s linear';
     document.querySelector('#site-image img').style.filter = 'grayscale(100%)';
 });
-
-// attempt all inputs in variables
-const incomeInput = document.getElementById('income-input');/* income input */
-const foodInput = document.getElementById('food-input');/* food expense input */
-const rentInput = document.getElementById('rent-input');/* rent expense input */
-const clothInput = document.getElementById('cloth-input');/* clothes expense input */
-const saveInput = document.getElementById('save-input');/* savings input */
-
-// attempt all buttons in variables
-const calcBtn = document.getElementById('calc-btn');/* calculate expenses */
-const saveBtn = document.getElementById('save-btn');/* calculate savings */
-
-// attempt all amounts in variables
-const totalExpense = document.getElementsByClassName('price')[0];/* total expenses */
-const balance = document.getElementsByClassName('price')[1];/* after expense balance */
-const savingAmount = document.getElementsByClassName('price')[2];/* amount of saving balance */
-const remainingBalance = document.getElementsByClassName('price')[3];/* amount of remaining balance */
-
-// driver variables
-let getFromIncomeInput = 0;
-let getFromFoodInput = 0;
-let getFromRentInput = 0;
-let getFromClothInput = 0;
-let getFromSavingInput = 0;
-
-// reused function to get float number
-function getFloatNumber(achievedNumber) {
-    return parseFloat(achievedNumber);
-}
 // change warning color
 function warningColor(warning) {
-    warning.style.color = 'red';
+    document.getElementById(warning).style.color = 'red';
 }
-
-// grab income input to a variable
-incomeInput.addEventListener('keyup', function () {
-    getFromIncomeInput = getFloatNumber(incomeInput.value);
-});
-// grab food input to a variable
-foodInput.addEventListener('keyup', function () {
-    getFromFoodInput = getFloatNumber(foodInput.value);
-});
-// grab rent input to a variable
-rentInput.addEventListener('keyup', function () {
-    getFromRentInput = getFloatNumber(rentInput.value);
-});
-// grab clothes input to a variable
-clothInput.addEventListener('keyup', function () {
-    getFromClothInput = getFloatNumber(clothInput.value);
-});
+// set inner value
+function setInnerValue(elementID, elementValue) {
+    document.getElementById(elementID).innerText = elementValue;
+}
+// get float number
+function getFloatNumber(inputValue) {
+    const floatValue = parseFloat(inputValue);
+    return floatValue;
+}
+// grab input value
+function getInputValue(inputValue) {
+    const floatValue = getFloatNumber(document.getElementById(inputValue).value);
+    return floatValue;
+}
 // calculate expenses
-calcBtn.addEventListener('click', function () {
-    if ((getFromFoodInput + getFromRentInput + getFromClothInput) <= getFromIncomeInput) {
-        totalExpense.innerText = getFromFoodInput + getFromRentInput + getFromClothInput;
-        balance.innerText = getFromIncomeInput - getFloatNumber(totalExpense.innerText);
+document.getElementById('calc-btn').addEventListener('click', function () {
+    let incomeInput = getInputValue('income-input');
+    let foodInput = getInputValue('food-input');
+    let rentInput = getInputValue('rent-input');
+    let clothInput = getInputValue('cloth-input');
+    // calculation and output
+    const totalExpense = (foodInput + rentInput + clothInput);
+    const restBalance = (incomeInput - totalExpense);
+    if (incomeInput <= 0 || totalExpense < 0) {
+        document.getElementById('price-total').innerText = 0.00;
+        document.getElementById('price-balance').innerText = 0.00;
+        document.getElementById('expense-warning').innerText = 'Zero or Negative not allow!';
+        warningColor('expense-warning');
     }
     else {
-        document.getElementsByClassName('warning')[0].innerText = 'expenses over lap income!';
-        warningColor(document.getElementsByClassName('warning')[0]);
+        // calculation and output
+        if (totalExpense <= incomeInput) {
+            setInnerValue('price-total', totalExpense);
+            setInnerValue('price-balance', restBalance);
+        }
+        // error messages
+        else if (totalExpense > incomeInput) {
+            document.getElementById('price-total').innerText = 0.00;
+            document.getElementById('price-balance').innerText = 0.00;
+            document.getElementById('expense-warning').innerText = 'expenses overlap income!';
+            warningColor('expense-warning');
+        }
+        else {
+            document.getElementById('price-total').innerText = 0.00;
+            document.getElementById('price-balance').innerText = 0.00;
+            document.getElementById('expense-warning').innerText = 'Income segment is not fetched!';
+            warningColor('expense-warning');
+        }
     }
-});
-
-// grab savings input to a variable
-saveInput.addEventListener('keyup', function () {
-    getFromSavingInput = getFloatNumber(saveInput.value);
 });
 // calculate savings
-saveBtn.addEventListener('click', function () {
-    if(!(((getFromSavingInput / 100) * getFromIncomeInput) > getFloatNumber(balance.innerText))){
-        savingAmount.innerText = (getFromSavingInput / 100) * getFromIncomeInput;
-        remainingBalance.innerText = getFloatNumber(balance.innerText) - getFloatNumber(savingAmount.innerText);
+document.getElementById('save-btn').addEventListener('click', function () {
+    let incomeInput = getInputValue('income-input');
+    let foodInput = getInputValue('food-input');
+    let rentInput = getInputValue('rent-input');
+    let clothInput = getInputValue('cloth-input');
+    const totalExpense = (foodInput + rentInput + clothInput);
+    const restBalance = (incomeInput - totalExpense);
+    const saveInput = getInputValue('save-input');
+    const priceSaving = ((saveInput / 100) * incomeInput);
+    const restSavings = restBalance - priceSaving;
+    if (((saveInput >= 1) && (saveInput <= 100))) {
+        // calculation and output
+        if (priceSaving <= restBalance) {
+            setInnerValue('price-saving', priceSaving);
+            setInnerValue('price-remaining', restSavings);
+        }
+        // error message
+        else {
+            document.getElementById('price-saving').innerText = 0.00;
+            document.getElementById('price-remaining').innerText = 0.00;
+            document.getElementById('saving-warning').innerText = 'savings overlap rest amount!';
+            warningColor('saving-warning');
+        }
     }
-    else{
-        document.getElementById('warning').innerText = 'savings can over lap main balance';
-        warningColor(document.getElementById('warning'));
+    // error message
+    else {
+        document.getElementById('price-saving').innerText = 0.00;
+        document.getElementById('price-remaining').innerText = 0.00;
+        document.getElementById('saving-warning').innerText = 'wrong commission input!';
+        warningColor('saving-warning');
     }
 });
