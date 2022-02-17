@@ -6,13 +6,11 @@ document.querySelector('#site-image img').style.filter = 'grayscale(100%)';
 
 document.querySelector('#site-image img').addEventListener('mouseover', function () {
     document.querySelector('#site-image img').style.transition = '1s linear';
-    document.querySelector('#site-image img').style.transform = 'scale(1.05)';
     document.querySelector('#site-image img').style.filter = 'grayscale(0%)';
 });
 
 document.querySelector('#site-image img').addEventListener('mouseout', function () {
     document.querySelector('#site-image img').style.transition = '1s linear';
-    document.querySelector('#site-image img').style.transform = 'scale(1)';
     document.querySelector('#site-image img').style.filter = 'grayscale(100%)';
 });
 
@@ -40,6 +38,15 @@ let getFromRentInput = 0;
 let getFromClothInput = 0;
 let getFromSavingInput = 0;
 
+// reused function to get float number
+function getFloatNumber(achievedNumber) {
+    return parseFloat(achievedNumber);
+}
+// change warning color
+function warningColor(warning) {
+    warning.style.color = 'red';
+}
+
 // grab income input to a variable
 incomeInput.addEventListener('keyup', function () {
     getFromIncomeInput = getFloatNumber(incomeInput.value);
@@ -62,6 +69,10 @@ calcBtn.addEventListener('click', function () {
         totalExpense.innerText = getFromFoodInput + getFromRentInput + getFromClothInput;
         balance.innerText = getFromIncomeInput - getFloatNumber(totalExpense.innerText);
     }
+    else {
+        document.getElementsByClassName('warning')[0].innerText = 'expenses over lap income!';
+        warningColor(document.getElementsByClassName('warning')[0]);
+    }
 });
 
 // grab savings input to a variable
@@ -70,11 +81,12 @@ saveInput.addEventListener('keyup', function () {
 });
 // calculate savings
 saveBtn.addEventListener('click', function () {
-    savingAmount.innerText = (getFromSavingInput / 100) * getFromIncomeInput;
-    remainingBalance.innerText = getFloatNumber(balance.innerText) - getFloatNumber(savingAmount.innerText);
+    if(!(((getFromSavingInput / 100) * getFromIncomeInput) > getFloatNumber(balance.innerText))){
+        savingAmount.innerText = (getFromSavingInput / 100) * getFromIncomeInput;
+        remainingBalance.innerText = getFloatNumber(balance.innerText) - getFloatNumber(savingAmount.innerText);
+    }
+    else{
+        document.getElementById('warning').innerText = 'savings can over lap main balance';
+        warningColor(document.getElementById('warning'));
+    }
 });
-
-// reused function to get float number
-function getFloatNumber(achievedNumber) {
-    return parseFloat(achievedNumber);
-}

@@ -19,6 +19,12 @@
     #head-portion{
         padding: 2rem 0;
     }
+    .warning{
+        display: block;
+        width: 100%;
+        margin-left: 0;
+        white-space: normal;
+    }
 }
 /* for small screen */
 @media screen and (max-width: 767px) {
@@ -37,5 +43,11 @@
     }
     #head-portion{
         padding: 2rem 0;
+    }
+    .warning{
+        display: block;
+        width: 100%;
+        margin-left: 0;
+        white-space: normal;
     }
 }

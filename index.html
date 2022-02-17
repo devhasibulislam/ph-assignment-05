@@ -11,6 +11,7 @@
     <!-- stylesheet custom files here -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animation.css">
     <!-- font awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
@@ -63,6 +64,7 @@
                         <div class="calc-expense-btn">
                             <button class="btn-style" type="" id="calc-btn">Calculate <i class="fa fa-calculator" aria-hidden="true"></i>
                             </button>
+                            <label for="warning" class="warning"></label>
                         </div>
                         <div class="calc-expense-desc">
                             <h4 id="total-expense">Total Expenses: $<span class="price">0.00</span></h4>
@@ -77,6 +79,8 @@
                             <input type="text" name="save" id="save-input" placeholder="i.e. 2 or 2.1"> <span id="percentage">%</span> <button
                                 class="btn-style" id="save-btn">Save <i class="fa fa-ravelry" aria-hidden="true"></i>
                             </button>
+                            <br>
+                            <label for="warning" id="warning"></label>
                         </div>
                     </section>
                     <!-- calculate savings statement -->

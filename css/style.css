@@ -102,6 +102,17 @@ img{
 .calc-expense-btn{
     padding: 0.5rem 0;
 }
+/* warning */
+.warning {
+    white-space: nowrap;
+    margin-left: 5rem;
+}
+#warning{
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+    text-align: center;
+}
 /* savings statement */
 #savings-statement{
     padding: 1rem 0;
