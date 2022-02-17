@@ -20,7 +20,7 @@
 <body>
     <!-- site header segment -->
     <header id="head-portion">
-        <h1 id="site-title">Hello Money Master</h1>
+        <h1 id="site-title">Your cash flow calculator</h1>
     </header>
     <!-- site main segment -->
     <main>
@@ -32,14 +32,14 @@
                 </section>
             </section>
             <!-- last portion -->
-            <section id="last-poriton">
+            <section id="last-portion">
                 <section id="balance-statement">
                     <!-- income statement -->
                     <section id="income-statement">
                         <h2>Income</h2>
                         <div class="income-box">
                             <label for="income">Income: </label>
-                            <input type="text" name="income" id="income-input">
+                            <input type="text" name="income" id="income-input" placeholder="i.e. 123 or 123.15">
                         </div>
                     </section>
                     <!-- expense statement -->
@@ -47,21 +47,22 @@
                         <h2>Expenses</h2>
                         <div class="expense-box-food expense-box">
                             <label for="expense">Food: </label>
-                            <input type="text" name="food" id="food-input">
+                            <input type="text" name="food" id="food-input" placeholder="i.e. 123 or 123.15">
                         </div>
                         <div class="expense-box-rent expense-box">
                             <label for="rent">Rent: </label>
-                            <input type="text" name="rent" id="rent-input">
+                            <input type="text" name="rent" id="rent-input" placeholder="i.e. 123 or 123.15">
                         </div>
                         <div class="expense-box-cloth expense-box">
                             <label for="cloth">Clothes: </label>
-                            <input type="text" name="cloth" id="cloth-input">
+                            <input type="text" name="cloth" id="cloth-input" placeholder="i.e. 123 or 123.15">
                         </div>
                     </section>
                     <!-- calculate expense statement -->
                     <section id="calc-expense-statement">
                         <div class="calc-expense-btn">
-                            <button class="btn-style" type="" id="calc-btn">Calculate</button>
+                            <button class="btn-style" type="" id="calc-btn">Calculate <i class="fa fa-calculator" aria-hidden="true"></i>
+                            </button>
                         </div>
                         <div class="calc-expense-desc">
                             <h4 id="total-expense">Total Expenses: $<span class="price">0.00</span></h4>
@@ -73,8 +74,9 @@
                         <h2>Savings</h2>
                         <div class="savings-box">
                             <label for="save">Save: </label>
-                            <input type="text" name="save" id="save-input"> <span id="percentage">%</span> <button
-                                class="btn-style" id="save-btn">Save</button>
+                            <input type="text" name="save" id="save-input" placeholder="i.e. 2 or 2.1"> <span id="percentage">%</span> <button
+                                class="btn-style" id="save-btn">Save <i class="fa fa-ravelry" aria-hidden="true"></i>
+                            </button>
                         </div>
                     </section>
                     <!-- calculate savings statement -->

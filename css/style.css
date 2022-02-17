@@ -1,4 +1,4 @@
-/* adding google fonts through stylesheet */
+/* adding google fonts through stylesheets */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 /* default property maintaining */
@@ -9,7 +9,7 @@
 
 body{
     background-color: #dfe6e9;
-    padding: 2rem;
+    padding: 0 5rem;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -28,7 +28,7 @@ img{
 /* header segment */
 /* title maintenance */
 #head-portion{
-    padding: 5rem;
+    padding: 2rem 0;
     text-align: center;
 }
 
@@ -70,7 +70,7 @@ img{
 }
 
 /* last portion */
-#last-poriton{
+#last-portion{
     padding: 2rem;
     background-color: white;
     border-radius: 1rem;
@@ -133,7 +133,7 @@ img{
     padding: 0.5rem 1.5rem;
     border-radius: 0.5rem;
     letter-spacing: 1.5px;
-    transition: background-color 1s linear;
+    transition: background-color .5s linear;
 }
 .btn-style:hover{
     background-color: #0984e3;
@@ -144,12 +144,15 @@ label{
     width: 10%;
     font-weight: 500;
 }
-/* common style for label */
+/* common style for input */
 input{
     font-weight: 500;
-    border: 1px solid gray;
+    border: 1px solid #0984e3;
     border-radius: 0.5rem;
     padding: 0.4rem;
+}
+input:focus{
+    outline: 2px solid #0984e3;
 }
 /* common style for expense box */
 .expense-box{

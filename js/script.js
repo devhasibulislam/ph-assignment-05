@@ -2,15 +2,18 @@
 document.getElementById('first-portion').addEventListener('mouseover', function () {
     document.getElementById('first-portion').style.overflow = 'hidden';
 });
+document.querySelector('#site-image img').style.filter = 'grayscale(100%)';
 
 document.querySelector('#site-image img').addEventListener('mouseover', function () {
     document.querySelector('#site-image img').style.transition = '1s linear';
     document.querySelector('#site-image img').style.transform = 'scale(1.05)';
+    document.querySelector('#site-image img').style.filter = 'grayscale(0%)';
 });
 
 document.querySelector('#site-image img').addEventListener('mouseout', function () {
     document.querySelector('#site-image img').style.transition = '1s linear';
     document.querySelector('#site-image img').style.transform = 'scale(1)';
+    document.querySelector('#site-image img').style.filter = 'grayscale(100%)';
 });
 
 // attempt all inputs in variables
@@ -39,34 +42,39 @@ let getFromSavingInput = 0;
 
 // grab income input to a variable
 incomeInput.addEventListener('keyup', function () {
-    getFromIncomeInput = parseFloat(incomeInput.value);
+    getFromIncomeInput = getFloatNumber(incomeInput.value);
 });
 // grab food input to a variable
 foodInput.addEventListener('keyup', function () {
-    getFromFoodInput = parseFloat(foodInput.value);
+    getFromFoodInput = getFloatNumber(foodInput.value);
 });
 // grab rent input to a variable
 rentInput.addEventListener('keyup', function () {
-    getFromRentInput = parseFloat(rentInput.value);
+    getFromRentInput = getFloatNumber(rentInput.value);
 });
 // grab clothes input to a variable
 clothInput.addEventListener('keyup', function () {
-    getFromClothInput = parseFloat(clothInput.value);
+    getFromClothInput = getFloatNumber(clothInput.value);
 });
 // calculate expenses
 calcBtn.addEventListener('click', function () {
     if ((getFromFoodInput + getFromRentInput + getFromClothInput) <= getFromIncomeInput) {
         totalExpense.innerText = getFromFoodInput + getFromRentInput + getFromClothInput;
-        balance.innerText = getFromIncomeInput - parseFloat(totalExpense.innerText);
+        balance.innerText = getFromIncomeInput - getFloatNumber(totalExpense.innerText);
     }
 });
 
 // grab savings input to a variable
 saveInput.addEventListener('keyup', function () {
-    getFromSavingInput = parseFloat(saveInput.value);
+    getFromSavingInput = getFloatNumber(saveInput.value);
 });
 // calculate savings
 saveBtn.addEventListener('click', function () {
     savingAmount.innerText = (getFromSavingInput / 100) * getFromIncomeInput;
-    remainingBalance.innerText = parseFloat(balance.innerText) - parseFloat(savingAmount.innerText);
+    remainingBalance.innerText = getFloatNumber(balance.innerText) - getFloatNumber(savingAmount.innerText);
 });
+
+// reused function to get float number
+function getFloatNumber(achievedNumber) {
+    return parseFloat(achievedNumber);
+}
