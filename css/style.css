@@ -12,11 +12,12 @@ body{
     padding: 2rem;
 }
 
-h1, h2, h3, h4, h5, h6, label{
+h1, h2, h3, h4, h5, h6{
     font-family: 'Poppins', sans-serif;
+    font-weight: 500;
 }
 
-p, a, input{
+p, a, input,label{
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -34,7 +35,7 @@ img{
 #body-portion{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 5rem;
+    column-gap: 3rem;
     align-items: center;
 }
 
@@ -48,10 +49,10 @@ img{
 #site-image{
     box-sizing: border-box;
     padding: 2rem;
-    background-color: white;
     background-image: url(../img/img-2.png);
     position: relative;
     z-index: 1;
+    border-radius: 1rem;
 }
 
 #site-image::before{
@@ -65,40 +66,93 @@ img{
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: -1;
+    border-radius: 1rem;
 }
 
 /* last portion */
-#balance-statement{}
+#last-poriton{
+    padding: 2rem;
+    background-color: white;
+    border-radius: 1rem;
+}
 /* income statement */
-#income-statement{}
-#income-statement h2{}
-.income-box{}
-.income-box label{}
-#income-input{}
+#income-statement{
+    padding: 1rem 0;
+}
+.income-box{
+    margin-top: 1rem;
+}
 /* expense statement */
-#expense-statement{}
-#expense-statement h2{}
-/* food segment */
-.expense-box-food{}
-.expense-box-food label{}
-#food-input{}
-/* rent segment */
-.expense-box-rent{}
-.expense-box-rent label{}
-.rent-input{}
-/* cloth segment */
-.expense-box-cloth{}
-.expense-box-cloth label{}
-#cloth-input{}
+#expense-statement{
+    padding: 1rem 0;
+}
 /* calculate expense segment */
-#calc-expense-statement{}
-.calc-expense-btn{}
-#calc-btn{}
+#calc-expense-statement{
+    padding: 1rem 0;
+}
+.calc-expense-desc{
+    padding: 1rem 0;
+}
+#total-expense{
+    margin-bottom: 0.5rem;
+}
+#balance{
+    margin-top: 0.5rem;
+}
+.calc-expense-btn{
+    padding: 0.5rem 0;
+}
 /* savings statement */
-#savings-statement{}
-.savings-box{}
-.savings-box label{}
-#save-input{}
-#save-btn{}
+#savings-statement{
+    padding: 1rem 0;
+}
+.savings-box{
+    padding: 1rem 0;
+}
+#save-input{
+    text-align: center;
+}
+#percentage{
+    display: inline-block;
+    padding: 0 3rem 0 .5rem;
+    font-weight: 500;
+    font-family: cursive;
+}
+/* saving amount */
+#saving-amount{
+    margin-bottom: 0.5rem;
+}
+#remaining-balance{
+    margin-top: 0.5rem;
+}
 /* common button style */
-.btn-style{}
+.btn-style{
+    background-color: #59A5FF;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    letter-spacing: 1.5px;
+}
+/* common style for label */
+label{
+    display: inline-block;
+    width: 10%;
+    font-weight: 500;
+}
+/* common style for label */
+input{
+    font-weight: 500;
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+    padding: 0.4rem;
+}
+/* common style for expense box */
+.expense-box{
+    margin-top: 1rem;
+}
+/* common style for price */
+.price{
+    font-size: 1.5rem;
+    font-weight: 400;
+}
